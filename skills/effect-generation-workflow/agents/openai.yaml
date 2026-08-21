@@ -1,0 +1,5 @@
+interface:
+  display_name: "特效生成链路"
+  short_description: "规划单图或参考视频驱动的完整特效生产链路与执行素材"
+  default_prompt: "分析目标视频并生成可执行的特效生产链路。"
+
