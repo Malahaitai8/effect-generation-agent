@@ -1,0 +1,4 @@
+[
+  {"task_id":"blind-v07-w","video_uri":"测试用例/功夫小猫.mov","title":null,"metadata":{"evaluation_round":"v07-pet-branch-correction"}},
+  {"task_id":"blind-v07-x","video_uri":"测试用例/达康书记摇车窗.mov","title":null,"metadata":{"evaluation_round":"v07-pet-branch-correction"}}
+]

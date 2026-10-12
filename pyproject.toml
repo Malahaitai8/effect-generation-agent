@@ -7,14 +7,23 @@ name = "effect-generation-agent"
 version = "0.1.0"
 description = "Agent for planning effect-generation workflows from reference videos."
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+  "filelock>=3.15,<4",
+  "imageio-ffmpeg>=0.6,<1",
+  "jsonschema>=4.22,<5",
+]
+
+[project.optional-dependencies]
+rag = [
+  "sentence-transformers>=3,<6",
+]
 
 [project.scripts]
 effect-agent = "effect_generation_agent.cli:main"
+effect-workbench = "effect_generation_agent.workbench_server:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-

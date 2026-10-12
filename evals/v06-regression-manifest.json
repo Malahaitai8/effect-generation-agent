@@ -1,0 +1,14 @@
+[
+  {
+    "task_id": "blind-v06-a",
+    "video_uri": "测试用例/泡面奇遇.mov",
+    "title": null,
+    "metadata": {"evaluation_round": "v06-regression"}
+  },
+  {
+    "task_id": "blind-v06-b",
+    "video_uri": "测试用例/浪漫时刻.mov",
+    "title": null,
+    "metadata": {"evaluation_round": "v06-regression"}
+  }
+]

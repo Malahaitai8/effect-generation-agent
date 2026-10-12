@@ -1,6 +1,177 @@
 {
-  "schema_version": "0.1.0",
-  "models": {},
-  "notes": "模型能力将在实施顺序第 8 步基于已验证资料补充；不从个别 case 推断能力上限。"
+  "schema_version": "0.2.0",
+  "reference_type": "case_observed",
+  "source": {
+    "name": "送到标注平台标注的特效【2026/01/05后】",
+    "collected_by": "Mario",
+    "collected_at": "2026-08-25"
+  },
+  "models": {
+    "keling_image_2_1_portrait_reference": {
+      "display_name": "可图 2.1 人像参考",
+      "category": "image_generation",
+      "aliases": ["可图2.1人像参考", "可图2.1-风格转会", "图片2.1-单图参考-人物长相", "可图2.1"],
+      "observed_uses": ["人物半身像或面部特写生成", "人像参考保真生图", "人物换背景或换装", "手办风格转换"],
+      "observed_inputs": ["人物原图", "文本提示词", "参考强度"],
+      "observed_outputs": ["人物图", "风格化人物图"],
+      "reference_cases": ["华丽登场", "秋日下午茶", "大狐仙", "桃林回眸", "七夕华灯", "时空鹊桥", "烟花告白", "吹毫毛", "桃园摘桃"],
+      "occurrence_count": "15+",
+      "confidence": "high",
+      "supports_multi_reference_images": false,
+      "notes": "案例中高频用于人物参考生图；风格转换是否属于独立模式尚未确认。"
+    },
+    "keling_image_3_0_omni": {
+      "display_name": "图片 3.0 Omni",
+      "category": "image_generation",
+      "aliases": ["图片3.0 Omni", "图片3.0 omni"],
+      "observed_uses": ["人物与场景融合", "背景融合", "图像高清化"],
+      "observed_inputs": ["上游人物图", "场景参考图", "文本提示词"],
+      "observed_outputs": ["场景化人物图", "高清人物图"],
+      "reference_cases": ["华丽登场", "七夕烟花", "烟花告白", "大狐仙"],
+      "occurrence_count": "约 5",
+      "confidence": "medium",
+      "supports_multi_reference_images": true,
+      "notes": "案例中常作为第二道生图节点；具体输入数量和分辨率限制未验证。"
+    },
+    "nano_2": {
+      "display_name": "nano 2",
+      "category": "image_generation",
+      "aliases": ["nano2"],
+      "observed_uses": ["多张参考图融合生成首帧"],
+      "observed_inputs": ["人物图", "动物参考图", "服装参考图", "文本提示词"],
+      "observed_outputs": ["融合后的首帧图"],
+      "reference_cases": ["大狐仙", "时空鹊桥"],
+      "occurrence_count": "2",
+      "confidence": "low",
+      "supports_multi_reference_images": true,
+      "notes": "仅有少量多图融合案例，模型正式名称和能力边界待确认。"
+    },
+    "image_2": {
+      "display_name": "image2",
+      "category": "image_generation",
+      "aliases": [],
+      "observed_uses": ["生成视频节点所需的前置图片"],
+      "observed_inputs": [],
+      "observed_outputs": ["图片"],
+      "reference_cases": ["穿搭变芭比风格模版", "化妆打扮臭美模版", "人类给小鸭子做发型", "宠物换装庆生", "日光浴"],
+      "occurrence_count": "约 5",
+      "confidence": "low",
+      "notes": "文档只记录内部简写，无法确认它是否为独立模型。"
+    },
+    "image_gpt_2": {
+      "display_name": "图片 GPT 2",
+      "category": "image_generation",
+      "aliases": ["图片gpt2"],
+      "observed_uses": ["实物或场景类文生图"],
+      "observed_inputs": ["文本提示词"],
+      "observed_outputs": ["场景图"],
+      "reference_cases": ["捞鱼"],
+      "occurrence_count": "1",
+      "confidence": "low",
+      "notes": "仅有一个案例，具体产品和能力边界未确认。"
+    },
+    "chatgpt_image": {
+      "display_name": "ChatGPT image",
+      "category": "image_generation",
+      "aliases": [],
+      "observed_uses": ["文生图"],
+      "observed_inputs": ["文本提示词"],
+      "observed_outputs": ["图片"],
+      "reference_cases": ["达康书记同款摇车窗模板"],
+      "occurrence_count": "1",
+      "confidence": "low",
+      "notes": "文档未说明具体产品版本，仅保留为案例中的候选名称。"
+    },
+    "kling_video_2_5_turbo": {
+      "display_name": "Kling 2.5 Turbo",
+      "category": "video_generation",
+      "aliases": ["可灵2.5turbo", "kling 2.5turbo", "2.5turbo", "视频2.5turbo"],
+      "observed_uses": ["首帧生视频", "首尾帧生视频"],
+      "observed_inputs": ["首帧图", "尾帧图", "文本提示词"],
+      "observed_outputs": ["视频"],
+      "reference_cases": ["桃林回眸", "幽兰狐火", "七夕华灯", "时空鹊桥", "烟花告白", "红缨枪2", "吹毫毛", "桃园摘桃"],
+      "occurrence_count": "约 8-10",
+      "confidence": "high",
+      "notes": "案例中高频用于单图或首尾帧生成视频；参数和输入上限未验证。"
+    },
+    "kling_video_2_6": {
+      "display_name": "Kling 2.6",
+      "category": "video_generation",
+      "aliases": ["可灵 2.6", "kling2.6", "kling 2.6 4s 720p"],
+      "observed_uses": ["首帧生视频"],
+      "observed_inputs": ["首帧图", "文本提示词"],
+      "observed_outputs": ["视频"],
+      "reference_cases": ["华丽登场", "秋日下午茶"],
+      "occurrence_count": "2",
+      "confidence": "medium",
+      "notes": "只有两个案例，保留为次级候选。"
+    },
+    "kling_video_3_0_omni": {
+      "display_name": "Kling 3.0 Omni",
+      "category": "video_generation",
+      "aliases": ["kling 3.0 Omni", "kling omini 3.0", "3.0 Omni", "视频3.0omini", "omni3", "视频Omni3.0"],
+      "observed_uses": ["首帧生视频", "首尾帧生视频", "音画同出", "参考视频驱动的主体替换"],
+      "observed_inputs": ["首帧图", "尾帧图", "参考视频", "人物图", "文本提示词"],
+      "observed_outputs": ["视频", "包含音频的视频"],
+      "reference_cases": ["穿搭变芭比风格模版", "化妆打扮臭美模版", "人类给小鸭子做发型", "日光浴", "宠物换装庆生", "大狐仙", "鹊桥告白", "时空鹊桥"],
+      "occurrence_count": "约 8-10",
+      "confidence": "medium",
+      "notes": "多个别名疑似指向同一模型；参考视频驱动和音画同出均来自案例观察，待设计师确认。"
+    },
+    "kling_video_3_0": {
+      "display_name": "Kling 视频 3.0",
+      "category": "video_generation",
+      "aliases": ["视频3.0", "可灵视频3.0", "可灵3.0首帧"],
+      "observed_uses": ["首帧生视频"],
+      "observed_inputs": ["首帧图", "文本提示词"],
+      "observed_outputs": ["视频"],
+      "reference_cases": ["腾云驾雾", "捞鱼", "吹毫毛"],
+      "occurrence_count": "3",
+      "confidence": "low",
+      "notes": "是否与 Kling 3.0 Omni 为不同版本尚未确认，不自动合并。"
+    },
+    "kling_o1": {
+      "display_name": "可灵 O1",
+      "category": "image_generation",
+      "aliases": ["可灵O1"],
+      "observed_uses": ["生成首尾状态图", "人物图像局部编辑"],
+      "observed_inputs": ["人物图", "上游人物图", "文本提示词"],
+      "observed_outputs": ["首帧图", "尾帧图", "编辑后人物图"],
+      "reference_cases": ["雪地摩托", "偶像来了"],
+      "occurrence_count": "2",
+      "confidence": "low",
+      "notes": "仅按两个历史案例保留独立候选；未确认与其他图片模型的版本关系和正式接口。"
+    },
+    "kling_video_2_5_pro": {
+      "display_name": "Kling 2.5 Pro",
+      "category": "video_generation",
+      "aliases": ["可灵2.5 pro"],
+      "observed_uses": ["首尾帧生视频"],
+      "observed_inputs": ["首帧图", "尾帧图", "文本提示词"],
+      "observed_outputs": ["视频"],
+      "reference_cases": ["雪地摩托"],
+      "occurrence_count": "1",
+      "confidence": "low",
+      "notes": "只在一个多图案例中观察到；不得与 2.5 Turbo 自动合并，接口与参数待确认。"
+    },
+    "kling_video_3_0_pro": {
+      "display_name": "Kling 3.0 Pro",
+      "category": "video_generation",
+      "aliases": ["可灵3.0 Pro"],
+      "observed_uses": ["首尾帧生视频"],
+      "observed_inputs": ["首帧图", "尾帧图", "文本提示词"],
+      "observed_outputs": ["视频"],
+      "reference_cases": ["偶像来了"],
+      "occurrence_count": "1",
+      "confidence": "low",
+      "notes": "只在一个多图案例中观察到；不得与 3.0 Omni 自动合并，接口与参数待确认。"
+    }
+  },
+  "usage_policy": {
+    "purpose": "为 Step 4 生成设计师可读的候选模型方案",
+    "selection_rule": "依据 observed_uses、observed_inputs 和 observed_outputs 选择最贴近当前节点的候选模型",
+    "uncertainty_rule": "所有能力均来自案例观察；不得写成官方已验证能力，低可信候选必须提示设计师确认",
+    "fallback_rule": "没有匹配候选时描述所需模型类型并记录能力缺口，不得虚构具体模型或参数"
+  },
+  "notes": "本表由历史标注案例归纳，只用于设计阶段参考，不代表接口可用性或模型能力上限。"
 }
-

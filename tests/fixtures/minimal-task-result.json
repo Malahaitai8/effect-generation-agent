@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.9.0",
+  "task_id": "task-example-001",
+  "created_at": "2026-08-21T09:00:00Z",
+  "updated_at": "2026-08-21T09:00:00Z",
+  "status": "initialized",
+  "current_step": 1,
+  "source": {
+    "video_uri": "inputs/example.mp4",
+    "title": "example",
+    "duration_seconds": null,
+    "metadata": {}
+  },
+  "workflow": {
+    "step_1": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["source", "workflow.step_1.output"], "output": null, "errors": []},
+    "step_2": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["workflow.step_1.output"], "output": null, "errors": []},
+    "step_3": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["workflow.step_1.output", "workflow.step_2.output"], "main_retrieval_count": 0, "output": null, "errors": []},
+    "step_4": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["source", "workflow.step_1.output", "workflow.step_2.output", "workflow.step_3.output", "artifacts.case_snapshot_path"], "output": null, "errors": []},
+    "step_5": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["source", "workflow.step_1.output", "workflow.step_4.output", "artifacts.materials_dir"], "output": null, "errors": []},
+    "step_6": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["workflow.step_1.output", "workflow.step_2.output", "workflow.step_3.output", "workflow.step_4.output", "workflow.step_5.output", "artifacts.case_snapshot_path"], "supplemental_retrievals": 0, "output": null, "errors": []},
+    "step_7": {"status": "pending", "attempt": 0, "started_at": null, "completed_at": null, "input_refs": ["source", "workflow.step_1.output", "workflow.step_2.output", "workflow.step_3.output", "workflow.step_4.output", "workflow.step_5.output", "workflow.step_6.output"], "output": null, "errors": []}
+  },
+  "artifacts": {
+    "task_result_path": "outputs/task-example-001/task-result.json",
+    "production_plan_path": null,
+    "case_snapshot_path": null,
+    "materials_dir": "outputs/task-example-001/materials"
+  },
+  "issues": []
+}

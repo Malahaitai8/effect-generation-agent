@@ -1,0 +1,14 @@
+[
+  {
+    "task_id": "blind-v07-a",
+    "video_uri": "测试用例/泡面奇遇.mov",
+    "title": null,
+    "metadata": {"evaluation_round": "v07-prompt-quality"}
+  },
+  {
+    "task_id": "blind-v07-b",
+    "video_uri": "测试用例/浪漫时刻.mov",
+    "title": null,
+    "metadata": {"evaluation_round": "v07-prompt-quality"}
+  }
+]

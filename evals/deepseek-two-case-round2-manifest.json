@@ -1,0 +1,10 @@
+[
+  {
+    "task_id": "deepseek-blind-c",
+    "video_uri": "测试用例/达康书记摇车窗.mov"
+  },
+  {
+    "task_id": "deepseek-blind-d",
+    "video_uri": "测试用例/功夫小猫.mov"
+  }
+]

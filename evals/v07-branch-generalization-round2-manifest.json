@@ -1,0 +1,8 @@
+[
+  {"task_id":"blind-v07-q","video_uri":"测试用例/浪漫时刻.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}},
+  {"task_id":"blind-v07-r","video_uri":"测试用例/秋日下午茶.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}},
+  {"task_id":"blind-v07-s","video_uri":"测试用例/泳池水枪.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}},
+  {"task_id":"blind-v07-t","video_uri":"测试用例/功夫小猫.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}},
+  {"task_id":"blind-v07-u","video_uri":"测试用例/寿司店老板.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}},
+  {"task_id":"blind-v07-v","video_uri":"测试用例/达康书记摇车窗.mov","title":null,"metadata":{"evaluation_round":"v07-branch-generalization-round2"}}
+]

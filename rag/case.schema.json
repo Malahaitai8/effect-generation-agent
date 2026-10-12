@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://effect-generation-agent.local/schemas/rag-case.schema.json",
+  "title": "Historical effect case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "case_name",
+    "source_ref",
+    "primary_selling_point",
+    "secondary_selling_points",
+    "route_type",
+    "materials",
+    "nodes",
+    "source_notes"
+  ],
+  "properties": {
+    "case_id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+    "case_name": {"type": "string", "minLength": 1},
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["document_url", "section"],
+      "properties": {
+        "document_url": {"type": "string", "format": "uri"},
+        "section": {"type": "string", "minLength": 1}
+      }
+    },
+    "primary_selling_point": {"$ref": "#/$defs/selling_point"},
+    "secondary_selling_points": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/selling_point"}
+    },
+    "route_type": {"enum": ["single_image", "multi_image", "reference_video"]},
+    "materials": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/material"}
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/node"}
+    },
+    "source_notes": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "selling_point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "tags"],
+      "properties": {
+        "description": {"type": "string", "minLength": 1},
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "identity_or_character_transformation",
+              "pet_anthropomorphism",
+              "style_transformation",
+              "scene_spectacle",
+              "effect_spectacle",
+              "state_transformation",
+              "prop_or_superpower",
+              "action_performance",
+              "physical_interaction",
+              "reveal_or_micro_narrative",
+              "text_or_symbol_reveal",
+              "festival_or_ritual",
+              "camera_or_composition",
+              "audio_visual_sync"
+            ]
+          }
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order", "id", "node_type", "is_final_video_node", "role", "model", "inputs", "outputs", "dependencies", "parameters", "prompts"],
+      "properties": {
+        "order": {"type": "integer", "minimum": 1},
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"},
+        "node_type": {"enum": ["classification", "prompt_generation", "image_generation", "image_processing", "video_generation"]},
+        "is_final_video_node": {"type": "boolean"},
+        "role": {"type": "string", "minLength": 1},
+        "model": {"type": ["string", "null"]},
+        "inputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "outputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+        "dependencies": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "parameters": {"type": "object"},
+        "prompts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/prompt"}
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "media_type", "role", "source_type"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "media_type": {"enum": ["image", "video", "text", "structured_data"]},
+        "role": {"type": "string", "minLength": 1},
+        "source_type": {"enum": ["user_input", "fixed_reference", "node_output"]}
+      }
+    },
+    "prompt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["variant", "text"],
+      "properties": {
+        "variant": {"type": "string", "minLength": 1},
+        "text": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "task_id": "deepseek-blind-a",
+    "video_uri": "测试用例/浪漫时刻.mov"
+  },
+  {
+    "task_id": "deepseek-blind-b",
+    "video_uri": "测试用例/寿司店老板.mov"
+  }
+]

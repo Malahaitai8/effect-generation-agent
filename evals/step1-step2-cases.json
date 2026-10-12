@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "case_id": "crystal_bridge",
+      "video_path": "特效自动化链路skill初步验证/测试视频/古风水晶桥.mov",
+      "human_trial_baseline": "特效自动化链路skill初步验证/特效生成链路首次试跑记录.md"
+    },
+    {
+      "case_id": "birthday_car_window",
+      "video_path": "特效自动化链路skill初步验证/测试视频/生日摇车窗.mov",
+      "human_trial_baseline": "特效自动化链路skill初步验证/生日车窗特效生成链路试跑记录.md"
+    }
+  ]
+}

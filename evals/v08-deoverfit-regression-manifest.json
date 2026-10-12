@@ -1,0 +1,6 @@
+[
+  {"task_id":"blind-v08-a","video_uri":"测试用例/浪漫时刻.mov","title":null,"metadata":{"evaluation_round":"v08-deoverfit-regression"}},
+  {"task_id":"blind-v08-b","video_uri":"测试用例/泡面奇遇.mov","title":null,"metadata":{"evaluation_round":"v08-deoverfit-regression"}},
+  {"task_id":"blind-v08-c","video_uri":"测试用例/功夫小猫.mov","title":null,"metadata":{"evaluation_round":"v08-deoverfit-regression"}},
+  {"task_id":"blind-v08-d","video_uri":"测试用例/达康书记摇车窗.mov","title":null,"metadata":{"evaluation_round":"v08-deoverfit-regression"}}
+]
